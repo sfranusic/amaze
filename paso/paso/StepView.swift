@@ -8,16 +8,10 @@ import SwiftUI
 struct StepView: View {
     @StateObject var healthKitHelper = HealthKitHelper.shared
     var body: some View {
-            VStack {
-                Text("Steps: \(healthKitHelper.stepCount)")
-                Button {
-                    Task {
-                        HealthKitHelper().authorizeHealthKit()
-                        HealthKitHelper().updateSteps()
-                    }
-                } label: {
-                    Text("Set up")
-                }
+        Text("\(healthKitHelper.stepCount)")
+            .task {
+                healthKitHelper.authorizeHealthKit()
+                healthKitHelper.getStepCount()
             }
     }
 }

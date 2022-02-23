@@ -1,8 +1,5 @@
 //
-//  pasoTests.swift
-//  pasoTests
-//
-//  Created by Sammy Franusic on 2/4/22.
+//  Created by Sam Franusic on 2/4/22.
 //
 
 import XCTest
@@ -16,6 +13,12 @@ class pasoTests: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+
+    func testHealthKitStepCount() async {
+        let hk = HealthKitHelper()
+        let steps: Double = await hk.stepCount
+        XCTAssert(steps >= 0)
     }
 
     func testExample() throws {

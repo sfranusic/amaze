@@ -72,8 +72,8 @@ class HealthKitHelper: ObservableObject {
     }
 
     public func getStepCount() {
-        DispatchQueue.main.async {
-            self.getTodaysStepCount { count in
+        self.getTodaysStepCount { count in
+            DispatchQueue.main.async {
                 HealthKitHelper.shared.stepCount = Int(count)
             }
         }

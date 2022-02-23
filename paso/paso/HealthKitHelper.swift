@@ -32,7 +32,7 @@ class HealthKitHelper: ObservableObject {
             fatalError("Health store is unavailable.")
         }
 
-        guard !healthKitIsAuthorized else {
+        guard healthKitIsAuthorized else {
             return
         }
 

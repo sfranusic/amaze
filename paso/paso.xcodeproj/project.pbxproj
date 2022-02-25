@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B205354727C207F6007A0DAB /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B205354627C207F6007A0DAB /* HealthKit.framework */; };
+		B205354927C82EF4007A0DAB /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B205354827C82EF4007A0DAB /* HealthKitController.swift */; };
 		B24662CE27ADF874008511F2 /* pasoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662CD27ADF874008511F2 /* pasoApp.swift */; };
 		B24662D027ADF874008511F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662CF27ADF874008511F2 /* ContentView.swift */; };
 		B24662D227ADF877008511F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24662D127ADF877008511F2 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		B205354427C207F6007A0DAB /* paso.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = paso.entitlements; sourceTree = "<group>"; };
 		B205354627C207F6007A0DAB /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		B205354827C82EF4007A0DAB /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		B24662CA27ADF874008511F2 /* paso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = paso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B24662CD27ADF874008511F2 /* pasoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pasoApp.swift; sourceTree = "<group>"; };
 		B24662CF27ADF874008511F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				B24662D327ADF877008511F2 /* Preview Content */,
 				B24662F727AE480B008511F2 /* HealthKitHelper.swift */,
 				B24662F927AE4AF9008511F2 /* StepView.swift */,
+				B205354827C82EF4007A0DAB /* HealthKitController.swift */,
 			);
 			path = paso;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			files = (
 				B24662FA27AE4AF9008511F2 /* StepView.swift in Sources */,
 				B24662D027ADF874008511F2 /* ContentView.swift in Sources */,
+				B205354927C82EF4007A0DAB /* HealthKitController.swift in Sources */,
 				B24662CE27ADF874008511F2 /* pasoApp.swift in Sources */,
 				B24662F827AE480B008511F2 /* HealthKitHelper.swift in Sources */,
 			);

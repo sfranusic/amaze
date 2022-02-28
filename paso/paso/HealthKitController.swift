@@ -42,4 +42,46 @@ actor HealthKitController: ObservableObject {
         }
 
     }
+
+    private func updatePublishedStepCount(with count: Int) async throws {
+
+        guard let result = try await queryHealthKitForStepCount(), let sum = result.sumQuantity() else {
+            return
+        }
+        let count = Int(sum.doubleValue(for: HKUnit.count()))
+        stepCount = max(count, stepCount)
+    }
+
+    private func queryHealthKitForStepCount() async throws -> HKStatistics? {
+
+        return try await withCheckedThrowingContinuation { continuation in
+            // Create query for step count.
+            let now = Date()
+            let startOfDay = Calendar.current.startOfDay(for: now)
+            let predicate = HKQuery.predicateForSamples(
+                withStart: startOfDay,
+                end: now,
+                options: .strictStartDate
+            )
+
+            let query = HKStatisticsQuery(
+                quantityType: stepData,
+                quantitySamplePredicate: predicate,
+                options: .cumulativeSum) { _, result, error in
+
+                    if let error = error {
+                        continuation.resume(throwing: error)
+                    } else {
+                        continuation.resume(returning: result)
+                    }
+            }
+            healthStore.execute(query)
+        }
+    }
+}
+
+extension HealthKitController {
+    enum PasoHealthKitError: Error {
+        case authentication, data
+    }
 }

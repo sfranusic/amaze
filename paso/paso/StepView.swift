@@ -9,6 +9,8 @@ struct StepView: View {
     @StateObject var healthKitHelper = HealthKitHelper.shared
     var body: some View {
         Text("\(healthKitHelper.stepCount)")
+            .foregroundColor(.red)
+            .fontWeight(.semibold)
             .task {
                 healthKitHelper.authorizeHealthKit()
                 healthKitHelper.getStepCount()

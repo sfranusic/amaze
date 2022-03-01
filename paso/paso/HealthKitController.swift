@@ -6,7 +6,7 @@ import SwiftUI
 actor HealthKitController: ObservableObject {
 
     public let healthStore: HKHealthStore
-    @Published private(set) var stepCount: Int = 0
+    @Published private(set) nonisolated var stepCount: Int = 0
 
     var stepData: HKQuantityType {
         guard let stepData = HKObjectType.quantityType(forIdentifier: .stepCount) else {

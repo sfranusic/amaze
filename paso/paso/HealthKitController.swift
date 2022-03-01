@@ -43,7 +43,8 @@ actor HealthKitController: ObservableObject {
 
     }
 
-    private func updatePublishedStepCount(with count: Int) async throws {
+    @MainActor
+    public func updatePublishedStepCount() async throws {
 
         guard let result = try await queryHealthKitForStepCount(), let sum = result.sumQuantity() else {
             return

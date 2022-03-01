@@ -6,14 +6,19 @@ import HealthKit
 import SwiftUI
 
 struct StepView: View {
-    @StateObject var healthKitHelper = HealthKitHelper.shared
+    @StateObject var healthKitHelper = HealthKitController()
     var body: some View {
         Text("\(healthKitHelper.stepCount)")
             .foregroundColor(.red)
             .fontWeight(.semibold)
+
             .task {
-                healthKitHelper.authorizeHealthKit()
-                healthKitHelper.getStepCount()
+                do {
+                    try await healthKitHelper.authorizeHealthKit()
+                    try await healthKitHelper.updatePublishedStepCount()
+                } catch {
+
+                }
             }
     }
 }

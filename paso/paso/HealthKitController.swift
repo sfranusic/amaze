@@ -4,48 +4,39 @@ import HealthKit
 import SwiftUI
 
 actor HealthKitController: ObservableObject {
-
-    public let healthStore: HKHealthStore
-    @Published private(set) nonisolated var stepCount: Int = 0
-
-    var stepData: HKQuantityType {
+    let healthStore: HKHealthStore
+    @Published private(set) nonisolated var stepCount = 0
+    var healthKitIsAuthorized: Bool {
+        healthStore.authorizationStatus(for: stepData) == .sharingAuthorized
+    }
+    private var stepData: HKQuantityType {
         guard let stepData = HKObjectType.quantityType(forIdentifier: .stepCount) else {
             fatalError("*** creating step count HKQuantityType should never fail.")
         }
         return stepData
     }
 
-    public var healthKitIsAuthorized: Bool {
-        healthStore.authorizationStatus(for: stepData) == .sharingAuthorized
-    }
-
     init() {
         self.healthStore = HKHealthStore()
     }
 
-    public func authorizeHealthKit() async throws {
+    func authorizeHealthKit() async throws {
         guard HKHealthStore.isHealthDataAvailable() else {
             fatalError("Health store is unavailable.")
         }
-
         guard healthKitIsAuthorized else {
             return
         }
-        
         let allData = Set([stepData])
-
         do {
             try await healthStore.requestAuthorization(toShare: allData, read: Set())
-
         } catch {
             print("Request for authorization to share data failed.")
         }
-
     }
 
     @MainActor
-    public func updatePublishedStepCount() async throws {
-
+    func updatePublishedStepCount() async throws {
         guard let result = try await queryHealthKitForStepCount(), let sum = result.sumQuantity() else {
             return
         }
@@ -53,7 +44,6 @@ actor HealthKitController: ObservableObject {
     }
 
     private func queryHealthKitForStepCount() async throws -> HKStatistics? {
-
         return try await withCheckedThrowingContinuation { continuation in
             // Create query for step count.
             let now = Date()
@@ -61,9 +51,7 @@ actor HealthKitController: ObservableObject {
             let predicate = HKQuery.predicateForSamples(
                 withStart: startOfDay,
                 end: now,
-                options: .strictStartDate
-            )
-
+                options: .strictStartDate)
             let query = HKStatisticsQuery(
                 quantityType: stepData,
                 quantitySamplePredicate: predicate,

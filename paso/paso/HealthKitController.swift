@@ -49,8 +49,7 @@ actor HealthKitController: ObservableObject {
         guard let result = try await queryHealthKitForStepCount(), let sum = result.sumQuantity() else {
             return
         }
-        let count = Int(sum.doubleValue(for: HKUnit.count()))
-        stepCount = max(count, stepCount)
+        stepCount = Int(sum.doubleValue(for: HKUnit.count()))
     }
 
     private func queryHealthKitForStepCount() async throws -> HKStatistics? {

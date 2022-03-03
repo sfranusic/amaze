@@ -16,7 +16,6 @@
 		B24662DF27ADF877008511F2 /* pasoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662DE27ADF877008511F2 /* pasoTests.swift */; };
 		B24662E927ADF877008511F2 /* pasoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662E827ADF877008511F2 /* pasoUITests.swift */; };
 		B24662EB27ADF877008511F2 /* pasoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662EA27ADF877008511F2 /* pasoUITestsLaunchTests.swift */; };
-		B24662F827AE480B008511F2 /* HealthKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662F727AE480B008511F2 /* HealthKitHelper.swift */; };
 		B24662FA27AE4AF9008511F2 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662F927AE4AF9008511F2 /* StepView.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +50,6 @@
 		B24662E427ADF877008511F2 /* pasoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pasoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B24662E827ADF877008511F2 /* pasoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pasoUITests.swift; sourceTree = "<group>"; };
 		B24662EA27ADF877008511F2 /* pasoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pasoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B24662F727AE480B008511F2 /* HealthKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHelper.swift; sourceTree = "<group>"; };
 		B24662F927AE4AF9008511F2 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +116,6 @@
 				B24662CF27ADF874008511F2 /* ContentView.swift */,
 				B24662D127ADF877008511F2 /* Assets.xcassets */,
 				B24662D327ADF877008511F2 /* Preview Content */,
-				B24662F727AE480B008511F2 /* HealthKitHelper.swift */,
 				B24662F927AE4AF9008511F2 /* StepView.swift */,
 				B205354827C82EF4007A0DAB /* HealthKitController.swift */,
 			);
@@ -284,7 +281,6 @@
 				B24662D027ADF874008511F2 /* ContentView.swift in Sources */,
 				B205354927C82EF4007A0DAB /* HealthKitController.swift in Sources */,
 				B24662CE27ADF874008511F2 /* pasoApp.swift in Sources */,
-				B24662F827AE480B008511F2 /* HealthKitHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

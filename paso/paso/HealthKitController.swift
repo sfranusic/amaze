@@ -6,6 +6,7 @@ import SwiftUI
 actor HealthKitController: ObservableObject {
     let healthStore: HKHealthStore
     @Published private(set) nonisolated var stepCount = 0
+    @Published nonisolated var shouldAlert = false
     var healthKitIsAuthorized: Bool {
         healthStore.authorizationStatus(for: stepData) == .sharingAuthorized
     }
@@ -24,9 +25,7 @@ actor HealthKitController: ObservableObject {
         guard HKHealthStore.isHealthDataAvailable() else {
             fatalError("Health store is unavailable.")
         }
-        guard healthKitIsAuthorized else {
-            return
-        }
+
         let allData = Set([stepData])
         do {
             try await healthStore.requestAuthorization(toShare: allData, read: Set())
@@ -77,10 +76,21 @@ actor HealthKitController: ObservableObject {
         healthStore.execute(observerQuery)
     }
 
+    @MainActor
     func setUpAccessToStepData() async throws {
-        try await self.authorizeHealthKit()
-        try await self.updatePublishedStepCount()
-        try await self.executeObserverQueryForStepCount()
+        switch await healthStore.authorizationStatus(for: stepData) {
+        case .sharingAuthorized:
+            try await self.updatePublishedStepCount()
+            try await self.executeObserverQueryForStepCount()
+            return
+        case .notDetermined:
+            try await self.authorizeHealthKit()
+            try await self.setUpAccessToStepData()
+        case .sharingDenied:
+            self.shouldAlert = true
+        @unknown default:
+            fatalError("Unknown status returned from health store.")
+        }
     }
 }
 

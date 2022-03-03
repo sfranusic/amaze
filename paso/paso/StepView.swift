@@ -15,8 +15,16 @@ struct StepView: View {
                 do {
                     try await healthKitHelper.setUpAccessToStepData()
                 } catch {
-                    
+
                 }
+            }
+            .alert(isPresented: $healthKitHelper.shouldAlert) {
+                Alert(title: Text("Health Access Denied"),
+                      message: Text("Access to Health data is necessary to show your step count."),
+                      primaryButton: .default(Text("Settings"), action: {
+                    // TODO: launch settings/permissions
+                }),
+                      secondaryButton: .cancel(Text("Cancel")))
             }
     }
 }

@@ -66,6 +66,22 @@ actor HealthKitController: ObservableObject {
             healthStore.execute(query)
         }
     }
+
+    private func executeObserverQueryForStepCount() async throws {
+        let observerQuery = HKObserverQuery(sampleType: stepData,
+                                            predicate: nil) { _, _, _ in
+            Task {
+                try await self.updatePublishedStepCount()
+            }
+        }
+        healthStore.execute(observerQuery)
+    }
+
+    func setUpAccessToStepData() async throws {
+        try await self.authorizeHealthKit()
+        try await self.updatePublishedStepCount()
+        try await self.executeObserverQueryForStepCount()
+    }
 }
 
 extension HealthKitController {

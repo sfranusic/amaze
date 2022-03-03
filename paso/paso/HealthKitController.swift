@@ -28,7 +28,7 @@ actor HealthKitController: ObservableObject {
 
         let allData = Set([stepData])
         do {
-            try await healthStore.requestAuthorization(toShare: allData, read: Set())
+            try await healthStore.requestAuthorization(toShare: Set(), read: allData)
         } catch {
             print("Request for authorization to share data failed.")
         }
@@ -37,6 +37,7 @@ actor HealthKitController: ObservableObject {
     @MainActor
     func updatePublishedStepCount() async throws {
         guard let result = try await queryHealthKitForStepCount(), let sum = result.sumQuantity() else {
+            self.shouldAlert = true
             return
         }
         stepCount = Int(sum.doubleValue(for: HKUnit.count()))
@@ -78,19 +79,9 @@ actor HealthKitController: ObservableObject {
 
     @MainActor
     func setUpAccessToStepData() async throws {
-        switch await healthStore.authorizationStatus(for: stepData) {
-        case .sharingAuthorized:
-            try await self.updatePublishedStepCount()
-            try await self.executeObserverQueryForStepCount()
-            return
-        case .notDetermined:
-            try await self.authorizeHealthKit()
-            try await self.setUpAccessToStepData()
-        case .sharingDenied:
-            self.shouldAlert = true
-        @unknown default:
-            fatalError("Unknown status returned from health store.")
-        }
+        try await self.authorizeHealthKit()
+        try await self.updatePublishedStepCount()
+        try await self.executeObserverQueryForStepCount()
     }
 }
 

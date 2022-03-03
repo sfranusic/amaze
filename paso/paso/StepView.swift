@@ -11,13 +11,11 @@ struct StepView: View {
         Text("\(healthKitHelper.stepCount)")
             .foregroundColor(.red)
             .fontWeight(.semibold)
-
             .task {
                 do {
-                    try await healthKitHelper.authorizeHealthKit()
-                    try await healthKitHelper.updatePublishedStepCount()
+                    try await healthKitHelper.setUpAccessToStepData()
                 } catch {
-
+                    
                 }
             }
     }

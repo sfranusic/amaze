@@ -24,7 +24,7 @@ struct StepView: View {
                 Alert(title: Text("Health Access Needed"),
                       message: Text("Access to Health data is necessary to show your step count."),
                       primaryButton: .default(Text("Settings"), action: {
-                    // TODO: launch settings/permissions
+                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                 }),
                       secondaryButton: .cancel(Text("Cancel")))
             }

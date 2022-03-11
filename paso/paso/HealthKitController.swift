@@ -58,6 +58,7 @@ actor HealthKitController: ObservableObject {
                 options: .cumulativeSum) { _, result, error in
 
                     if let error = error {
+                        print(error.localizedDescription)
                         continuation.resume(returning: nil)
                     } else {
                         continuation.resume(returning: result)

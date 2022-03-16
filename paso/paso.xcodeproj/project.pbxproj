@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B205354727C207F6007A0DAB /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B205354627C207F6007A0DAB /* HealthKit.framework */; };
+		B205354927C82EF4007A0DAB /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B205354827C82EF4007A0DAB /* HealthKitController.swift */; };
 		B24662CE27ADF874008511F2 /* pasoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662CD27ADF874008511F2 /* pasoApp.swift */; };
 		B24662D027ADF874008511F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662CF27ADF874008511F2 /* ContentView.swift */; };
 		B24662D227ADF877008511F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24662D127ADF877008511F2 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 		B24662DF27ADF877008511F2 /* pasoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662DE27ADF877008511F2 /* pasoTests.swift */; };
 		B24662E927ADF877008511F2 /* pasoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662E827ADF877008511F2 /* pasoUITests.swift */; };
 		B24662EB27ADF877008511F2 /* pasoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662EA27ADF877008511F2 /* pasoUITestsLaunchTests.swift */; };
+		B24662FA27AE4AF9008511F2 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662F927AE4AF9008511F2 /* StepView.swift */; };
+		B281A2F027DC113C00475D18 /* HealthKitControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281A2EF27DC113C00475D18 /* HealthKitControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B205354427C207F6007A0DAB /* paso.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = paso.entitlements; sourceTree = "<group>"; };
+		B205354627C207F6007A0DAB /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		B205354827C82EF4007A0DAB /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		B24662CA27ADF874008511F2 /* paso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = paso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B24662CD27ADF874008511F2 /* pasoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pasoApp.swift; sourceTree = "<group>"; };
 		B24662CF27ADF874008511F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +51,8 @@
 		B24662E427ADF877008511F2 /* pasoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pasoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B24662E827ADF877008511F2 /* pasoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pasoUITests.swift; sourceTree = "<group>"; };
 		B24662EA27ADF877008511F2 /* pasoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pasoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B24662F927AE4AF9008511F2 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
+		B281A2EF27DC113C00475D18 /* HealthKitControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B205354727C207F6007A0DAB /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B205354527C207F6007A0DAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B205354627C207F6007A0DAB /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B24662C127ADF874008511F2 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +96,7 @@
 				B24662DD27ADF877008511F2 /* pasoTests */,
 				B24662E727ADF877008511F2 /* pasoUITests */,
 				B24662CB27ADF874008511F2 /* Products */,
+				B205354527C207F6007A0DAB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,10 +113,13 @@
 		B24662CC27ADF874008511F2 /* paso */ = {
 			isa = PBXGroup;
 			children = (
+				B205354427C207F6007A0DAB /* paso.entitlements */,
 				B24662CD27ADF874008511F2 /* pasoApp.swift */,
 				B24662CF27ADF874008511F2 /* ContentView.swift */,
 				B24662D127ADF877008511F2 /* Assets.xcassets */,
 				B24662D327ADF877008511F2 /* Preview Content */,
+				B24662F927AE4AF9008511F2 /* StepView.swift */,
+				B205354827C82EF4007A0DAB /* HealthKitController.swift */,
 			);
 			path = paso;
 			sourceTree = "<group>";
@@ -114,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				B24662DE27ADF877008511F2 /* pasoTests.swift */,
+				B281A2EF27DC113C00475D18 /* HealthKitControllerTests.swift */,
 			);
 			path = pasoTests;
 			sourceTree = "<group>";
@@ -257,7 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B24662FA27AE4AF9008511F2 /* StepView.swift in Sources */,
 				B24662D027ADF874008511F2 /* ContentView.swift in Sources */,
+				B205354927C82EF4007A0DAB /* HealthKitController.swift in Sources */,
 				B24662CE27ADF874008511F2 /* pasoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B281A2F027DC113C00475D18 /* HealthKitControllerTests.swift in Sources */,
 				B24662DF27ADF877008511F2 /* pasoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,12 +442,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = paso/paso.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"paso/Preview Content\"";
-				DEVELOPMENT_TEAM = 94L3XLA8X2;
+				DEVELOPMENT_TEAM = N8TGLP7Q94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Paso needs access to health kit to determine how many steps you have taken.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,8 +461,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sf.paso;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sf.paso2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -445,12 +475,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = paso/paso.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"paso/Preview Content\"";
-				DEVELOPMENT_TEAM = 94L3XLA8X2;
+				DEVELOPMENT_TEAM = N8TGLP7Q94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Paso needs access to health kit to determine how many steps you have taken.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -461,8 +494,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sf.paso;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sf.paso2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

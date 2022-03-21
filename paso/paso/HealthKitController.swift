@@ -22,9 +22,7 @@ actor HealthKitController: ObservableObject {
     }
 
     func authorizeHealthKit() async throws {
-        guard HKHealthStore.isHealthDataAvailable() else {
-            fatalError("Health store is unavailable.")
-        }
+        HKHealthStore.isHealthDataAvailable()
 
         let allData = Set([stepData])
         do {

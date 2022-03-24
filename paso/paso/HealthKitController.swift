@@ -40,8 +40,10 @@ actor HealthKitController: ObservableObject {
             return
         }
         stepCount = Int(sum.doubleValue(for: HKUnit.count()))
-        stepDataList.append(StepRowData(steps: stepCount))
-
+        let newStepRow = StepRowData(steps: stepCount)
+        if !stepDataList.contains(newStepRow) {
+            stepDataList.append(newStepRow)
+        }
     }
 
     private func queryHealthKitForStepCount() async throws -> HKStatistics? {

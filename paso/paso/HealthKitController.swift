@@ -41,7 +41,7 @@ actor HealthKitController: ObservableObject {
         }
         stepCount = Int(sum.doubleValue(for: HKUnit.count()))
         let newStepRow = StepRowData(steps: stepCount)
-        if !stepDataList.contains(newStepRow) {
+        if stepDataList.last != newStepRow {
             stepDataList.append(newStepRow)
         }
     }

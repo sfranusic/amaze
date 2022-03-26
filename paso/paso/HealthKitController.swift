@@ -6,6 +6,7 @@ import SwiftUI
 actor HealthKitController: ObservableObject {
     let healthStore: HKHealthStore
     @Published private(set) nonisolated var stepCount = 0
+    @Published private(set) nonisolated var stepDataList: [StepRowData] = []
     @Published nonisolated var shouldAlert = false
     var healthKitIsAuthorized: Bool {
         healthStore.authorizationStatus(for: stepData) == .sharingAuthorized
@@ -22,9 +23,7 @@ actor HealthKitController: ObservableObject {
     }
 
     func authorizeHealthKit() async throws {
-        guard HKHealthStore.isHealthDataAvailable() else {
-            fatalError("Health store is unavailable.")
-        }
+        HKHealthStore.isHealthDataAvailable()
 
         let allData = Set([stepData])
         do {
@@ -41,6 +40,10 @@ actor HealthKitController: ObservableObject {
             return
         }
         stepCount = Int(sum.doubleValue(for: HKUnit.count()))
+        let newStepRow = StepRowData(steps: stepCount)
+        if stepDataList.last != newStepRow {
+            stepDataList.append(newStepRow)
+        }
     }
 
     private func queryHealthKitForStepCount() async throws -> HKStatistics? {

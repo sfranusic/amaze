@@ -8,7 +8,7 @@ import SwiftUI
 struct pasoApp: App {
     var body: some Scene {
         WindowGroup {
-            StepView()
+            StepListView()
         }
     }
 }

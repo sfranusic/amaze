@@ -18,6 +18,8 @@
 		B24662EB27ADF877008511F2 /* pasoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662EA27ADF877008511F2 /* pasoUITestsLaunchTests.swift */; };
 		B24662FA27AE4AF9008511F2 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24662F927AE4AF9008511F2 /* StepView.swift */; };
 		B281A2F027DC113C00475D18 /* HealthKitControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281A2EF27DC113C00475D18 /* HealthKitControllerTests.swift */; };
+		B2C88C5B27E93E740057D949 /* StepListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C88C5A27E93E740057D949 /* StepListRow.swift */; };
+		B2C88C5D27EAB3BA0057D949 /* StepListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C88C5C27EAB3BA0057D949 /* StepListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		B24662EA27ADF877008511F2 /* pasoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pasoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B24662F927AE4AF9008511F2 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 		B281A2EF27DC113C00475D18 /* HealthKitControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitControllerTests.swift; sourceTree = "<group>"; };
+		B2C88C5A27E93E740057D949 /* StepListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListRow.swift; sourceTree = "<group>"; };
+		B2C88C5C27EAB3BA0057D949 /* StepListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				B24662D327ADF877008511F2 /* Preview Content */,
 				B24662F927AE4AF9008511F2 /* StepView.swift */,
 				B205354827C82EF4007A0DAB /* HealthKitController.swift */,
+				B2C88C5A27E93E740057D949 /* StepListRow.swift */,
+				B2C88C5C27EAB3BA0057D949 /* StepListView.swift */,
 			);
 			path = paso;
 			sourceTree = "<group>";
@@ -280,7 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C88C5D27EAB3BA0057D949 /* StepListView.swift in Sources */,
 				B24662FA27AE4AF9008511F2 /* StepView.swift in Sources */,
+				B2C88C5B27E93E740057D949 /* StepListRow.swift in Sources */,
 				B24662D027ADF874008511F2 /* ContentView.swift in Sources */,
 				B205354927C82EF4007A0DAB /* HealthKitController.swift in Sources */,
 				B24662CE27ADF874008511F2 /* pasoApp.swift in Sources */,
